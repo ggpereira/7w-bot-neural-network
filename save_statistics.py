@@ -116,7 +116,6 @@ def get_match_csv_structure(playerlog):
 	df['qt_commercial_cards'] = playerlog['amount']['commercial']
 	df['qt_raw_materials'] = playerlog['amount']['raw_material']
 	df['qt_manufactured_good'] = playerlog['amount']['manufactured_goods']
-	df['qt_raw_materials'] = playerlog['amount']['raw_material']
 	df['qt_scientific_cards'] = playerlog['amount']['scientific']
 	df['qt_guild_cards'] = playerlog['amount']['guild']
 	df['wonder_id'] = playerlog['wonder_id']
