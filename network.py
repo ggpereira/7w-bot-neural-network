@@ -12,7 +12,7 @@ class Network(nn.Module):
         self.activation0 = activation 
         self.dense1 = nn.Linear(h_neurons, h_neurons)
         self.activation1 = activation 
-        self.dense2 = nn.Linear(h_neurons, outputs)
+        self.dense4 = nn.Linear(h_neurons, outputs)
 
 
     def forward(self, x):
@@ -20,7 +20,7 @@ class Network(nn.Module):
         x = self.activation0(x)
         x = self.dense1(x)
         x = self.activation1(x)
-        x = self.dense2(x) 
+        x = self.dense4(x) 
 
         return x
 
@@ -49,16 +49,16 @@ AGE3_LABELS = [126, 127, 128, 129, 130, 139, 140, 142, 150, 152, 153, 161, 162, 
                326, 327, 328, 329, 330, 339, 340, 342, 350, 352, 353, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375]
 
 
-ModelAge1 = Network(32, 70, len(AGE1_LABELS), F.relu)
+ModelAge1 = Network(32, 80, len(AGE1_LABELS), F.relu)
 ModelAge1.load_state_dict(torch.load("./model/model_age1_net1_lr0001_relu.pth"))
 ModelAge1.eval()
 
-ModelAge2 = Network(32, 70, len(AGE2_LABELS), F.relu)
-ModelAge2.load_state_dict(torch.load("./model/model_age2_net1_lr0001_relu.pth"))
+ModelAge2 = Network(32, 80, len(AGE2_LABELS), F.relu)
+ModelAge2.load_state_dict(torch.load("./model/model_age2_net2_lr0001_relu.pth"))
 ModelAge2.eval()
 
 ModelAge3 = Network(37, 90, len(AGE3_LABELS), F.relu) 
-ModelAge3.load_state_dict(torch.load("./model/model_age3_net1_lr0001_relu.pth")) 
+ModelAge3.load_state_dict(torch.load("./model/model_age3_net3_lr0001_relu.pth")) 
 ModelAge3.eval()
 
 
